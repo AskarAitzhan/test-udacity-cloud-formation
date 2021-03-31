@@ -1,4 +1,4 @@
-#CloudFormation templates
+# CloudFormation templates
 
 To create resources in AWS run following commands
 * ./create.sh udagram-network network.yml network_params.json
