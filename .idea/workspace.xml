@@ -10,11 +10,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6ddf35e4-c14f-4644-b848-8a12c09e33dd" name="Default Changelist" comment="Rename template &amp; param files">
-      <change afterPath="$PROJECT_DIR$/servers.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/servers_params.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="6ddf35e4-c14f-4644-b848-8a12c09e33dd" name="Default Changelist" comment="Add server template&#10;&#10;Server template include:&#10;* AutoScaling Group&#10;* Launch Configuration&#10;* Load Balancer with listeners and health checks&#10;* Security Groups">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/create.sh" beforeDir="false" afterPath="$PROJECT_DIR$/create.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servers.yml" beforeDir="false" afterPath="$PROJECT_DIR$/servers.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +58,7 @@
       <workItem from="1609771906710" duration="2350000" />
       <workItem from="1610960581231" duration="13180000" />
       <workItem from="1615917523017" duration="428000" />
-      <workItem from="1615919221822" duration="2427000" />
+      <workItem from="1615919221822" duration="13289000" />
     </task>
     <task id="LOCAL-00001" summary="First commit">
       <created>1609772040877</created>
@@ -96,7 +95,14 @@
       <option name="project" value="LOCAL" />
       <updated>1612521089309</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Add server template&#10;&#10;Server template include:&#10;* AutoScaling Group&#10;* Launch Configuration&#10;* Load Balancer with listeners and health checks&#10;* Security Groups">
+      <created>1616531464567</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1616531464567</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -120,25 +126,26 @@
     <MESSAGE value="Change template to deploy network infra" />
     <MESSAGE value="Add parameter values and create script" />
     <MESSAGE value="Rename template &amp; param files" />
-    <option name="LAST_COMMIT_MESSAGE" value="Rename template &amp; param files" />
+    <MESSAGE value="Add server template&#10;&#10;Server template include:&#10;* AutoScaling Group&#10;* Launch Configuration&#10;* Load Balancer with listeners and health checks&#10;* Security Groups" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add server template&#10;&#10;Server template include:&#10;* AutoScaling Group&#10;* Launch Configuration&#10;* Load Balancer with listeners and health checks&#10;* Security Groups" />
   </component>
   <component name="WindowStateProjectService">
     <state x="557" y="352" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1612512498828">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
     <state x="557" y="352" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1792.1120@0.0.1792.1120" timestamp="1612512498828" />
-    <state x="581" y="292" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1613548490024">
+    <state x="581" y="292" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1617155819228">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state x="581" y="292" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1792.1120@0.0.1792.1120" timestamp="1613548490024" />
-    <state x="558" y="247" width="675" height="655" key="StructurePopup" timestamp="1612528225265">
+    <state x="581" y="292" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1792.1120@0.0.1792.1120" timestamp="1617155819228" />
+    <state x="558" y="247" width="675" height="655" key="StructurePopup" timestamp="1616532877693">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state x="558" y="247" width="675" height="655" key="StructurePopup/0.0.1792.1120@0.0.1792.1120" timestamp="1612528225265" />
-    <state x="396" y="237" key="Vcs.Push.Dialog.v2" timestamp="1616530971322">
+    <state x="558" y="247" width="675" height="655" key="StructurePopup/0.0.1792.1120@0.0.1792.1120" timestamp="1616532877693" />
+    <state x="396" y="237" key="Vcs.Push.Dialog.v2" timestamp="1616531471809">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state x="396" y="237" key="Vcs.Push.Dialog.v2/0.0.1792.1120@0.0.1792.1120" timestamp="1616530971322" />
+    <state x="396" y="237" key="Vcs.Push.Dialog.v2/0.0.1792.1120@0.0.1792.1120" timestamp="1616531471809" />
     <state x="470" y="435" key="git4idea.remote.GitConfigureRemotesDialog" timestamp="1610966445181">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>

@@ -8,6 +8,11 @@ Parameters:
     Type: String
 
 Resources:
+  WebInstanceProfile:
+    Type: AWS::IAM::InstanceProfile
+    Properties:
+      Roles:
+        - TestS3ReadOnly
   LBSecGroup:
     Type: AWS::EC2::SecurityGroup
     Properties:
@@ -22,8 +27,8 @@ Resources:
           CidrIp: 0.0.0.0/0
       SecurityGroupEgress:
         - IpProtocol: tcp
-          FromPort: 0
-          ToPort: 65535
+          FromPort: 80
+          ToPort: 80
           CidrIp: 0.0.0.0/0
   WebServerSecGroup:
     Type: AWS::EC2::SecurityGroup
@@ -34,8 +39,8 @@ Resources:
           !Sub "${EnvironmentName}-VPCID"
       SecurityGroupIngress:
         - IpProtocol: tcp
-          FromPort: 8080
-          ToPort: 8080
+          FromPort: 80
+          ToPort: 80
           CidrIp: 0.0.0.0/0
         - IpProtocol: tcp
           FromPort: 22
@@ -52,7 +57,15 @@ Resources:
       UserData:
         Fn::Base64: !Sub |
           #!/bin/bash
-          # Install docker
+          # Enter super user mode
+          sudo su
+
+          # Install necessary libraries.
+          apt-get update
+          apt install -y unzip
+          apt install -y awscli
+
+          # Install docker.
           sudo su
           apt-get update
           apt-get install -y apt-transport-https ca-certificates curl software-properties-common
@@ -63,17 +76,32 @@ Resources:
           stable"
           apt-get update
           apt-get install -y docker-ce
+
+          # Download web files from S3.
+          mkdir -p /var/www/html
+          cd /var/www/html
+          aws s3 cp s3://udacity-demo-1/udacity.zip .
+          unzip udacity.zip
+
+          # Run docker container with apache image.
           usermod -aG docker ubuntu
-          docker run -p 8080:8080 tomcat:8.0
+          docker run --detach --name udagram-app -p 80:80 httpd:2.4
+          docker cp . udagram-app:/usr/local/apache2/htdocs/
       ImageId: ami-0dd9f0e7df0f0a138
       KeyName: TestUdacityKeyPair
       SecurityGroups:
         - Ref: WebServerSecGroup
       InstanceType: t3.medium
+      IamInstanceProfile:
+        Ref: WebInstanceProfile
       BlockDeviceMappings:
         - DeviceName: "/dev/sdk"
           Ebs:
             VolumeSize: '10'
+  WebAppPlacementGroup:
+    Type: AWS::EC2::PlacementGroup
+    Properties:
+      Strategy: spread
   WebAppGroup:
     Type: AWS::AutoScaling::AutoScalingGroup
     Properties:
@@ -82,8 +110,10 @@ Resources:
             !Sub "${EnvironmentName}-PRIV-NETS"
       LaunchConfigurationName:
         Ref: WebAppLaunchConfig
-      MinSize: '3'
-      MaxSize: '5'
+      PlacementGroup:
+        Ref: WebAppPlacementGroup
+      MinSize: '4'
+      MaxSize: '4'
       TargetGroupARNs:
         - Ref: WebAppTargetGroup
   WebAppLB:
@@ -124,9 +154,14 @@ Resources:
       HealthCheckProtocol: HTTP
       HealthCheckTimeoutSeconds: 8
       HealthyThresholdCount: 2
-      Port: 8080
+      Port: 80
       Protocol: HTTP
       UnhealthyThresholdCount: 5
       VpcId:
         Fn::ImportValue:
           Fn::Sub: "${EnvironmentName}-VPCID"
+Outputs:
+  URL:
+    Description: "Load Balancer DNS"
+    Value:
+      Fn::Join: ['', ["http://", Fn::GetAtt: ["WebAppLB", "DNSName"]]]
