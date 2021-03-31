@@ -45,10 +45,14 @@ Resources:
           FromPort: 80
           ToPort: 80
           CidrIp: 0.0.0.0/0
-        - IpProtocol: tcp
-          FromPort: 22
-          ToPort: 22
-          CidrIp: 0.0.0.0/0
+        # Only use for debugging purposes. Go through checklist:
+        # * Specify KeyName in launch config
+        # * Put servers either in public subnet or access through jump host
+        # * Allow SSH port on security groups
+#        - IpProtocol: tcp
+#          FromPort: 22
+#          ToPort: 22
+#          CidrIp: 0.0.0.0/0
       SecurityGroupEgress:
         - IpProtocol: tcp
           FromPort: 0
@@ -91,8 +95,12 @@ Resources:
           docker run --detach --name udagram-app -p 80:80 httpd:2.4
           docker cp . udagram-app:/usr/local/apache2/htdocs/
       ImageId: ami-0dd9f0e7df0f0a138
-      KeyName:
-        !Sub "${SecurityKey}"
+      # Only use for debugging purposes. Go through checklist:
+      # * Specify KeyName in launch config
+      # * Put servers either in public subnet or access through jump host
+      # * Allow SSH port on security groups
+#       KeyName:
+#        !Sub "${SecurityKey}"
       SecurityGroups:
         - Ref: WebServerSecGroup
       InstanceType: t3.medium
