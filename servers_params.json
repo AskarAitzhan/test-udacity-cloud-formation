@@ -2,5 +2,9 @@
   {
     "ParameterKey": "EnvironmentName",
     "ParameterValue": "Udagram"
+  },
+  {
+    "ParameterKey": "SecurityKey",
+    "ParameterValue": "TestUdacityKeyPair"
   }
 ]

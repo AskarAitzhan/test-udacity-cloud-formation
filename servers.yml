@@ -6,6 +6,9 @@ Parameters:
   EnvironmentName:
     Description: An environment name that will be prefixed to resource names
     Type: String
+  SecurityKey:
+    Description: A SSH key pair
+    Type: String
 
 Resources:
   WebInstanceProfile:
@@ -88,7 +91,8 @@ Resources:
           docker run --detach --name udagram-app -p 80:80 httpd:2.4
           docker cp . udagram-app:/usr/local/apache2/htdocs/
       ImageId: ami-0dd9f0e7df0f0a138
-      KeyName: TestUdacityKeyPair
+      KeyName:
+        !Sub "${SecurityKey}"
       SecurityGroups:
         - Ref: WebServerSecGroup
       InstanceType: t3.medium

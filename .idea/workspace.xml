@@ -10,10 +10,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6ddf35e4-c14f-4644-b848-8a12c09e33dd" name="Default Changelist" comment="Add server template&#10;&#10;Server template include:&#10;* AutoScaling Group&#10;* Launch Configuration&#10;* Load Balancer with listeners and health checks&#10;* Security Groups">
+    <list default="true" id="6ddf35e4-c14f-4644-b848-8a12c09e33dd" name="Default Changelist" comment="Download S3 files and launch apache server">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/create.sh" beforeDir="false" afterPath="$PROJECT_DIR$/create.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/servers.yml" beforeDir="false" afterPath="$PROJECT_DIR$/servers.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servers_params.json" beforeDir="false" afterPath="$PROJECT_DIR$/servers_params.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +58,7 @@
       <workItem from="1609771906710" duration="2350000" />
       <workItem from="1610960581231" duration="13180000" />
       <workItem from="1615917523017" duration="428000" />
-      <workItem from="1615919221822" duration="13289000" />
+      <workItem from="1615919221822" duration="14344000" />
     </task>
     <task id="LOCAL-00001" summary="First commit">
       <created>1609772040877</created>
@@ -102,7 +102,14 @@
       <option name="project" value="LOCAL" />
       <updated>1616531464567</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Download S3 files and launch apache server">
+      <created>1617179050011</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1617179050011</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -127,7 +134,8 @@
     <MESSAGE value="Add parameter values and create script" />
     <MESSAGE value="Rename template &amp; param files" />
     <MESSAGE value="Add server template&#10;&#10;Server template include:&#10;* AutoScaling Group&#10;* Launch Configuration&#10;* Load Balancer with listeners and health checks&#10;* Security Groups" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add server template&#10;&#10;Server template include:&#10;* AutoScaling Group&#10;* Launch Configuration&#10;* Load Balancer with listeners and health checks&#10;* Security Groups" />
+    <MESSAGE value="Download S3 files and launch apache server" />
+    <option name="LAST_COMMIT_MESSAGE" value="Download S3 files and launch apache server" />
   </component>
   <component name="WindowStateProjectService">
     <state x="557" y="352" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1612512498828">
@@ -142,10 +150,10 @@
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
     <state x="558" y="247" width="675" height="655" key="StructurePopup/0.0.1792.1120@0.0.1792.1120" timestamp="1616532877693" />
-    <state x="396" y="237" key="Vcs.Push.Dialog.v2" timestamp="1616531471809">
+    <state x="396" y="237" key="Vcs.Push.Dialog.v2" timestamp="1617179055663">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state x="396" y="237" key="Vcs.Push.Dialog.v2/0.0.1792.1120@0.0.1792.1120" timestamp="1616531471809" />
+    <state x="396" y="237" key="Vcs.Push.Dialog.v2/0.0.1792.1120@0.0.1792.1120" timestamp="1617179055663" />
     <state x="470" y="435" key="git4idea.remote.GitConfigureRemotesDialog" timestamp="1610966445181">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
