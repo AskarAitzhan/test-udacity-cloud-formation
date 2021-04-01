@@ -1,4 +1,4 @@
-# CloudFormation templates for static file
+# CloudFormation templates for static website
 
 AWS CloudFormation templates that spawn:
 * VPC with public and private subnets
